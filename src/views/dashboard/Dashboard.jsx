@@ -1,19 +1,22 @@
 import { useEffect, useState } from "react";
 import Card from "./components/Card";
+import { fetchUsers } from "../../utils/users";
 
 const Dashboard = () => {
 	const [users, setUsers] = useState([]);
-	const fetchUsers = async () => {
-		const response = await fetch("http://localhost:3000/users");
-		const data = await response.json();
+
+	const getUsers = async () => {
+    const data = await fetchUsers();
 		setUsers(data);
 	};
+
 	useEffect(() => {
-		fetchUsers();
+    getUsers();
 	}, []);
+
 	return (
-		<section className="flex justify-center m-5 ">
-			<div className='w-fit flex flex-col gap-3'>
+		<section className='flex justify-center h-screen overflow-auto'>
+			<div className='w-fit flex flex-col gap-5 m-5'>
 				{users.map((user) => (
 					<div key={user.id}>
 						<Card user={user} />
