@@ -37,9 +37,12 @@ export default function Users() {
 	const handleClick = async () => {
 		setDisabled(true);
 		if (!form.description) return 
-		const response = await postDescription(user.id, form);
-		console.log(response);
-		window.location.reload();
+		try {
+			const response = await postDescription(user.id, form);
+		} catch (error) {
+			console.log(error);
+		}
+		getUserDescription(user.id);
 		setDisabled(false);
 	};
 

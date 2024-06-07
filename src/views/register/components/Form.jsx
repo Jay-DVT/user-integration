@@ -4,18 +4,25 @@ const Form = () => {
 	const [form, setForm] = useState({
 		name: "",
 		email: "",
+		address: "",
+		age: "",
+		specialty: "",
 	});
 	const handleChange = (e) => {
-		const { name, value } = e.target;
+		const { name, value, address, age, specialty } = e.target;
 		const newForm = {
 			...form,
 			[name]: value,
+			[address]: value,
+			[age]: value,
+			[specialty]: value,
 		};
 		setForm(newForm);
 	};
 
 	const handleSubmitForm = async (e) => {
 		e.preventDefault();
+		console.log(form);
 		try {
 			const res = await fetch("http://localhost:3000/users", {
 				method: "POST",
@@ -77,8 +84,10 @@ const Form = () => {
 						border: "1px solid #399C7E",
 					}}
 					name='address'
-          placeholder="Direccion"
+					placeholder='Direccion'
 					type='text'
+					value={form.address}
+					onChange={handleChange}
 				/>
 				<label htmlFor='age'>Edad</label>
 				<input
@@ -90,7 +99,10 @@ const Form = () => {
 						border: "1px solid #399C7E",
 					}}
 					name='age'
-					type='number'placeholder="Edad"
+					type='number'
+					placeholder='Edad'
+					value={form.age}
+					onChange={handleChange}
 				/>
 				<label htmlFor='specialty'>Specialty</label>
 				<input
@@ -103,7 +115,9 @@ const Form = () => {
 					}}
 					name='specialty'
 					type='text'
-          placeholder="Especialidad"
+					placeholder='Especialidad'
+					value={form.specialty}
+					onChange={handleChange}
 				/>
 				<div style={{ paddingTop: "5%" }}>
 					<button
