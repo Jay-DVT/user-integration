@@ -49,8 +49,8 @@ const Dashboard = () => {
 							<div key={initial} className=''>
 								<h2 className='ml-3 text-3xl font-bold'>{initial}</h2>
 								<div className=''>
-									{organizedUsers[initial].map((user) => (
-										<div className='m-2'>
+									{organizedUsers[initial].map((user, index) => (
+										<div className='m-2' key={index}>
 											<Card key={user.id} user={user} />
 										</div>
 									))}

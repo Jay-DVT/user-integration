@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 
 const NavigationBar = ({ children, location, onSearch }) => {
 	return (
-		<div className='h-screen flex flex-col'>
+		<div className='min-h-screen h-screen flex flex-col'>
 			<div className='flex items-center gap-3 h-16 w-full shadow-sm px-4 bg-primary'>
 				<div
 					className='flex items-center gap-1 hover:cursor-pointer hover:bg-white hover:text-primary p-1 px-2 rounded-md text-white'
