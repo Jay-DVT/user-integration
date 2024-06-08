@@ -9,6 +9,7 @@ import PreviousDescription from "./components/PreviousDescription";
 import UserInfo from "./components/UserInfo";
 import NavigationBar from "../../shared/NavigationBar";
 import StepButton from "./components/StepButton";
+import HelpRAG from "./components/HelpRAG";
 
 export default function Users() {
 	const [disabled, setDisabled] = useState(true);
@@ -153,8 +154,11 @@ export default function Users() {
 								))}
 							</div>
 						</div>
-						<div>
-							<div className='text-2xl m-4'>Busca en nuestros archivos</div>
+						<div className="flex-1 flex flex-col">
+								<div className='text-2xl m-4'>Busca en nuestros archivos</div>
+								<div className="flex-1">
+									<HelpRAG />
+								</div>
 						</div>
 					</div>
 				</section>
